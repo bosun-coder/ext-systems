@@ -42,13 +42,11 @@ CREATE TABLE ro_marriage_certificate (
     marriage_certificate_id SERIAL,
     number_certificate varchar(20) not null,
     date_issue date not null,
-    person_id integer not null,
     husband_id integer not null,
     wife_id integer not null,
     active boolean DEFAULT FALSE,
     end_date date,
     PRIMARY KEY (marriage_certificate_id),
-    FOREIGN KEY (person_id) REFERENCES ro_person(person_id) ON DELETE RESTRICT,
     FOREIGN KEY (husband_id) REFERENCES ro_person(person_id) ON DELETE RESTRICT,
     FOREIGN KEY (wife_id) REFERENCES ro_person(person_id) ON DELETE RESTRICT
 );
